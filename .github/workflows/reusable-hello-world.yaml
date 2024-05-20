@@ -9,7 +9,7 @@ on:
 
 jobs:
   hello_world_job:
-    runs-on: self-hosted
+    #runs-on: self-hosted
     name: A job to say hello
     steps:
       # To use the custom action from the dummy-action repository
