@@ -1,0 +1,24 @@
+name: Install Python Dependencies
+
+on:
+  workflow_call:
+    inputs:
+      python-dependencies:
+        description: 'Python dependencies to install'
+        required: true
+        type: string
+
+jobs:
+  example-job:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Docker Container Action
+        uses: vinod1002/dummy-action/python@main
+        with:
+          python_dependencies: '${{ github.event.inputs.python-dependencies }}'
+
+      - name: Check Output
+        run: echo "Python dependencies installed successfully
