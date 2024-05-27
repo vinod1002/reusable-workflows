@@ -1,0 +1,21 @@
+name: Count Lines
+
+on:
+  workflow_call:
+    inputs:
+      file_path:
+        description: 'Path to the text file'
+        required: true
+        type: string
+
+jobs:
+  count_lines:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Run Line Counter Action
+        uses: vinod1002/dummy-action/line-counter@main
+        with:
+          file_path: ${{ github.event.inputs.file_path }}
