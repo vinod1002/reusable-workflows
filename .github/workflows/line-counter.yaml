@@ -14,6 +14,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: Set execute permission for entrypoint.sh
+        run: chmod +x entrypoint.sh
+        working-directory: ${{ github.workspace }}/line-counter
       
       - name: Run Line Counter Action
         uses: vinod1002/dummy-action/line-counter@main
