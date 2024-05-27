@@ -14,16 +14,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-        
-      - name: List Repository Contents
-        run: ls -R
-        working-directory: ${{ github.workspace }}
 
-      - name: Set execute permission for entrypoint.sh
-        run: chmod +x viond1002/dummy-action/line-counter/entrypoint.sh
-        working-directory: ${{ github.workspace }}
-      
+      - name: Set execute permission for entrypoint.sh and run Line Counter Action
+        run: |
+          cd viond1002/dummy-action/line-counter
+          chmod +x entrypoint.sh
+          ./entrypoint.sh ${{ github.event.inputs.file_path }}
+
       - name: Run Line Counter Action
-        uses: vinod1002/dummy-action/line-counter@main
+        uses: viond1002/dummy-action/line-counter/action.yaml@main
         with:
           file_path: ${{ github.event.inputs.file_path }}
