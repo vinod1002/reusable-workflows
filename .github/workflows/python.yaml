@@ -21,4 +21,4 @@ jobs:
           python_dependencies: '${{ github.event.inputs.python-dependencies }}'
 
       - name: Check Output
-        run: echo "Python dependencies installed successfully
+        run: echo "Python dependencies installed successfully"
