@@ -17,7 +17,7 @@ jobs:
 
       - name: Set execute permission for entrypoint.sh
         run: chmod +x entrypoint.sh
-        working-directory: ${{ github.workspace }}/line-counter
+        working-directory: ${{ github.workspace }}
       
       - name: Run Line Counter Action
         uses: vinod1002/dummy-action/line-counter@main
