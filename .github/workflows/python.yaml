@@ -18,7 +18,7 @@ jobs:
       - name: Run Docker Container Action
         uses: vinod1002/dummy-action/python@main
         with:
-          python_dependencies: '${{ github.event.inputs.python-dependencies }}'
+          python_dependencies: '${{ github.event.inputs.python_dependencies }}'
 
       - name: Check Output
         run: echo "Python dependencies installed successfully"
