@@ -17,7 +17,7 @@ jobs:
 
       - name: Hello world action step
         id: hello_world_action
-        uses: vinod1002/dummy-action/hello-world-docker-action/action.yaml@main
+        uses: vinod1002/dummy-action/hello-world-docker-action@main
         with:
           who-to-greet: ${{ inputs.who-to-greet }}
 
