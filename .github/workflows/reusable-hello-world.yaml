@@ -1,4 +1,4 @@
-name: Reusable Workflow
+name: Test Custom Action
 
 on:
   workflow_call:
@@ -9,15 +9,17 @@ on:
 
 jobs:
   hello_world_job:
-    #runs-on: self-hosted
+    runs-on: self-hosted
     name: A job to say hello
     steps:
-      # To use the custom action from the dummy-action repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Hello world action step
-        uses: vinod1002/dummy-action/hello-world-docker-action@main # Uses an action from a different repository within the same organization
+        id: hello_world_action
+        uses: vinod1002/dummy-action/hello-world-docker-action/action.yaml@main
         with:
           who-to-greet: ${{ inputs.who-to-greet }}
 
-      # Use the output from the custom action step
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        run: echo "The time was ${{ steps.hello_world_action.outputs.time }}"
